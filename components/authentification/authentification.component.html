@@ -1,0 +1,83 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active">Authentification</h2>
+
+    <!-- Login Form -->
+    <form [formGroup]="authentiForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            class="fadeIn second"
+            placeholder="email *"
+            formControlName="email"
+            [(ngModel)]="logs.email"
+          />
+        </div>
+
+        <div
+          *ngIf="
+            authentiForm.controls['email'].invalid &&
+            (authentiForm.controls['email'].touched ||
+              authentiForm.controls['email'].dirty)
+          "
+        >
+          <div
+            *ngIf="authentiForm.controls['email'].errors.required"
+            class="text-danger"
+          >
+            Veuillez saisir votre email
+          </div>
+
+          <div
+            *ngIf="authentiForm.controls['email'].errors.email"
+            style="color: red"
+          >
+            email est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            class="fadeIn third"
+            placeholder="Mot de passe *"
+            formControlName="motDePasse"
+            [(ngModel)]="logs.motDePasse"
+          />
+        </div>
+
+        <div
+          *ngIf="
+            authentiForm.controls['motDePasse'].invalid &&
+            (authentiForm.controls['motDePasse'].touched ||
+              authentiForm.controls['motDePasse'].dirty)
+          "
+        >
+          <div
+            *ngIf="authentiForm.controls['motDePasse'].errors.required"
+            class="text-danger"
+          >
+            Veuillez saisir votre email
+          </div>
+
+          <div
+            *ngIf="authentiForm.controls['motDePasse'].errors.minlength"
+            style="color: red"
+          >
+            Minimum 8 caractères
+          </div>
+        </div>
+        <div class="regerv_btn">
+          <button class="fadeIn fourth" (click)="authentifier()">
+            Se connecter
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

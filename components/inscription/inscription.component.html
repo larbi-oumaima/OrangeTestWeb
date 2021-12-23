@@ -1,0 +1,137 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active">inscription</h2>
+
+    <!-- Login Form -->
+    <form [formGroup]="inscriForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            class="fadeIn second"
+            placeholder="Nom *"
+            formControlName="nom"
+            [(ngModel)]="insc.nom"
+          />
+        </div>
+
+        <div
+          *ngIf="
+            inscriForm.controls['nom'].invalid &&
+            (inscriForm.controls['nom'].touched ||
+              inscriForm.controls['nom'].dirty)
+          "
+        >
+          <div
+            *ngIf="inscriForm.controls['nom'].errors.required"
+            class="text-danger"
+          >
+            Veuillez saisir votre nom
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            class="fadeIn third"
+            placeholder="Prénom *"
+            formControlName="prenom"
+            [(ngModel)]="insc.prenom"
+          />
+        </div>
+
+        <div
+          *ngIf="
+            inscriForm.controls['prenom'].invalid &&
+            (inscriForm.controls['prenom'].touched ||
+              inscriForm.controls['prenom'].dirty)
+          "
+        >
+          <div
+            *ngIf="inscriForm.controls['prenom'].errors.required"
+            class="text-danger"
+          >
+            Veuillez saisir votre prenom
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            type="email"
+            class="form-control"
+            class="fadeIn second"
+            placeholder="email *"
+            formControlName="email"
+            [(ngModel)]="insc.email"
+          />
+        </div>
+
+        <div
+          *ngIf="
+            inscriForm.controls['email'].invalid &&
+            (inscriForm.controls['email'].touched ||
+              inscriForm.controls['email'].dirty)
+          "
+        >
+          <div
+            *ngIf="inscriForm.controls['email'].errors.required"
+            class="text-danger"
+          >
+            Veuillez saisir votre email
+          </div>
+
+          <div
+            *ngIf="inscriForm.controls['email'].errors.email"
+            style="color: red"
+          >
+            email est obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input
+            type="password"
+            class="form-control"
+            class="fadeIn third"
+            placeholder="Mot de passe *"
+            formControlName="motDePasse"
+            [(ngModel)]="insc.motDePasse"
+          />
+        </div>
+
+        <div
+          *ngIf="
+            inscriForm.controls['motDePasse'].invalid &&
+            (inscriForm.controls['motDePasse'].touched ||
+              inscriForm.controls['motDePasse'].dirty)
+          "
+        >
+          <div
+            *ngIf="inscriForm.controls['motDePasse'].errors.required"
+            class="text-danger"
+          >
+            Veuillez saisir votre mot de passe
+          </div>
+
+          <div
+            *ngIf="inscriForm.controls['motDePasse'].errors.minlength"
+            style="color: red"
+          >
+            Minimum 8 caractères
+          </div>
+        </div>
+        <div class="regerv_btn">
+          <button class="fadeIn fourth" (click)="inscription(insc)">
+            Sinscrire
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

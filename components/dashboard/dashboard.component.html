@@ -1,0 +1,20 @@
+<input type="file" id="input" (change)="excelRead($event)" />
+
+<div style="margin-top: 100px" class="table-wrapper">
+  <h2>Users Dashboard</h2>
+  <table class="fl-table">
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Email</th>
+      <th>Mot de passe</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let p of users">
+      <td>{{ p.nom }}</td>
+      <td>{{ p.prenom }}</td>
+      <td>{{ p.email }}</td>
+      <td>{{ p.motDePasse }}</td>
+    </tr>
+  </table>
+</div>
